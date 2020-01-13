@@ -1,0 +1,51 @@
+### using OMP_NUM_THREADS=56
+### using KMP_AFFINITY=granularity=fine,compact,1,0
+### using KMP_BLOCKTIME=1
+
+Running on device:  Intel(R) Xeon(R) Platinum 8180 CPU @ 2.50GHz
+ModelType: alexnet, Kernels: nn Input shape: 128x3x224x224
+nn                              :forward:      74.20    1724.99
+nn                             :backward:     129.47
+nn                               :update:       9.36
+nn                                :total:     203.67     628.47
+ModelType: vgg11, Kernels: nn Input shape: 64x3x224x224
+nn                              :forward:     409.73     156.20
+nn                             :backward:     687.89
+nn                               :update:      21.28
+nn                                :total:    1097.63      58.31
+ModelType: inception_v3, Kernels: nn Input shape: 128x3x299x299
+nn                              :forward:    1446.67      88.48
+nn                             :backward:    3343.21
+nn                               :update:       5.63
+nn                                :total:    4789.87      26.72
+ModelType: resnet50, Kernels: nn Input shape: 128x3x224x224
+nn                              :forward:    1467.48      87.22
+nn                             :backward:    3300.64
+nn                               :update:       5.09
+nn                                :total:    4768.12      26.84
+ModelType: squeezenet1_0, Kernels: nn Input shape: 128x3x224x224
+nn                              :forward:     298.97     428.13
+nn                             :backward:     617.40
+nn                               :update:       0.92
+nn                                :total:     916.37     139.68
+ModelType: densenet121, Kernels: nn Input shape: 32x3x224x224
+nn                              :forward:     403.86      79.24
+nn                             :backward:    1146.25
+nn                               :update:       4.09
+nn                                :total:    1550.12      20.64
+ModelType: mobilenet_v2, Kernels: nn Input shape: 128x3x224x224
+nn                              :forward:     645.41     198.32
+nn                             :backward:    1910.81
+nn                               :update:       2.20
+nn                                :total:    2556.23      50.07
+ModelType: shufflenet, Kernels: nn Input shape: 128x3x224x224
+nn                              :forward:     255.52     500.95
+nn                             :backward:     825.99
+nn                               :update:       2.09
+nn                                :total:    1081.51     118.35
+ModelType: unet, Kernels: nn Input shape: 32x3x256x256
+nn                              :forward:    1736.89      18.42
+nn                             :backward:    3357.87
+nn                               :update:       3.92
+nn                                :total:    5094.76       6.28
+
