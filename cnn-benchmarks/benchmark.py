@@ -30,7 +30,7 @@ from inceptionv4 import InceptionV4
 models.__dict__['inceptionv4'] = InceptionV4
 
 archs = OrderedDict()
-archs['alexnet'] = [128, 3, 224, 224]
+archs['alexnet'] = [1, 3, 224, 224]
 archs['vgg11'] = [64, 3, 224, 224]
 archs['googlenet'] = [64, 3, 224, 224]
 archs['overfeat'] = [128, 3, 231, 231]
