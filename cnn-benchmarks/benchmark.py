@@ -30,14 +30,14 @@ from inceptionv4 import InceptionV4
 models.__dict__['inceptionv4'] = InceptionV4
 
 archs = OrderedDict()
-archs['alexnet'] = [32, 3, 224, 224]
-archs['vgg11'] = [32, 3, 224, 224]
-archs['googlenet'] = [32, 3, 224, 224]
-archs['overfeat'] = [32, 3, 231, 231]
+archs['alexnet'] = [128, 3, 224, 224]
+archs['vgg11'] = [64, 3, 224, 224]
+archs['googlenet'] = [64, 3, 224, 224]
+archs['overfeat'] = [128, 3, 231, 231]
 archs['inception_v3'] = [32, 3, 299, 299]
 archs['inceptionv4'] = [32, 3, 299, 299]
-archs['resnet50'] = [32, 3, 224, 224]
-archs['resnet152'] = [32, 3, 224, 224]
+archs['resnet50'] = [128, 3, 224, 224]
+archs['resnet152'] = [128, 3, 224, 224]
 archs['squeezenet1_0'] = [128, 3, 224, 224]
 archs['densenet121'] = [32, 3, 224, 224]
 archs['mobilenet_v2'] = [128, 3, 224, 224]
