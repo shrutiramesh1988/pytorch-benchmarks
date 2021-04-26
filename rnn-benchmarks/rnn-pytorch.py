@@ -29,7 +29,15 @@ input_size = hidden_size #opts.input_size
 
 # Data
 #If batch_first=True
+
+# Set random seed for Input Tensor
+# np.random.seed(0)
+# torch.manual_seed(0)
 xinput = np.random.rand(batch_size, seq_length, hidden_size).astype(np.float32)
+
+# Print Input Tensor
+# print(xinput)
+
 #If batch_first=False
 #xinput = np.random.rand(seq_length, batch_size, hidden_size).astype(np.float32)
 ytarget = np.random.rand(batch_size, seq_length, hidden_size).astype(np.float32)
@@ -78,15 +86,20 @@ print('# network parameters: ' + str(params))
 optimizer = optim.Adam(net.parameters())
 criterion = nn.MSELoss()
 
+net.eval()
 start = time.time()
 for i in range(n_batch):
     optimizer.zero_grad()
-    output = net(X0_batch)
+    with torch.no_grad():
+        output = net(X0_batch)
 end = time.time()
 print("Forward:")
 print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
 
+# Print Output Tensor
+# print(output)
 
+'''
 start = time.time()
 for i in range(n_batch):
     optimizer.zero_grad()
@@ -98,5 +111,5 @@ end = time.time()
 
 print("Forward + Backward:")
 print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
-
+'''
 

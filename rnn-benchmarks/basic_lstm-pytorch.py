@@ -27,7 +27,13 @@ n_batch = 100
 n_samples = batch_size * n_batch
 
 # Data
+
+# Set Random seed for Input Data
+# np.random.seed(0)
+# torch.manual_seed(0)
 xinput = np.random.rand(seq_length, batch_size, hidden_size).astype(np.float32)
+# Print Input
+# print(xinput)
 ytarget = np.random.rand(batch_size, hidden_size).astype(np.float32)
 h_lstm = Variable(torch.zeros(batch_size, hidden_size))
 c_lstm = Variable(torch.zeros(batch_size, hidden_size))
@@ -76,7 +82,10 @@ end = time.time()
 print("Forward:")
 print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
 
+# Print Output Tensor
+# print(output)
 
+'''
 start = time.time()
 for i in range(n_batch):
     optimizer.zero_grad()
@@ -88,4 +97,4 @@ end = time.time()
 
 print("Forward + Backward:")
 print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
-
+'''

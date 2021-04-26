@@ -7,7 +7,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.autograd import Variable
 import os
-#import random
 
 # Parameters
 optparser = optparse.OptionParser()
@@ -32,8 +31,16 @@ n_samples = batch_size * n_batch
 # Data
 #If batch_first=True
 #xinput = np.random.rand(batch_size, seq_length, hidden_size).astype(np.float32)
+
+# Set Random Seed for Input
+# np.random.seed(0)
+# torch.manual_seed(0)
 xinput = np.random.rand(seq_length,batch_size,hidden_size).astype(np.float32)
 xinput = xinput.transpose(1,0,2)
+
+# Print Input Tensor
+# print(xinput)
+
 #If batch_first=False
 #xinput = np.random.rand(seq_length, batch_size, hidden_size).astype(np.float32)
 #ytarget = np.random.rand(batch_size, hidden_size).astype(np.float32)
@@ -94,6 +101,7 @@ print('# network parameters: ' + str(params))
 optimizer = optim.Adam(net.parameters())
 criterion = nn.MSELoss()
 
+print(X0_batch)
 start = time.time()
 for i in range(0, n_batch):
     optimizer.zero_grad()
@@ -102,17 +110,19 @@ end = time.time()
 print("Forward:")
 print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
 
+# Print Output Tensor
+# print (output)
 
-start = time.time()
-for i in range(0, n_batch):
-    optimizer.zero_grad()
-    output = net(X0_batch)
-    loss = criterion(output, Y0_batch)
-    loss.backward()
-    optimizer.step()
-end = time.time()
+#start = time.time()
+#for i in range(0, n_batch):
+#    optimizer.zero_grad()
+#    output = net(X0_batch)
+#    loss = criterion(output, Y0_batch)
+#    loss.backward()
+#    optimizer.step()
+#end = time.time()
 
 
-print("Forward + Backward:")
-print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
+#print("Forward + Backward:")
+#print("--- %i samples in %s seconds (%1.5f samples/s, %1.7f s/sample) ---" % (n_samples, end - start, n_samples / (end - start), (end - start) / n_samples))
 
