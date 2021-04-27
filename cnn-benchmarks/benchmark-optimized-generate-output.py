@@ -5,6 +5,7 @@ import torch.nn as nn
 import torchvision.models as models
 import torch.optim as optim
 import time
+import os
 import subprocess
 from collections import OrderedDict
 #import torch.autograd.profiler as profiler
@@ -115,7 +116,7 @@ def benchmark(args, archs_list, steps, nDryRuns):
                 output = net(data)
                 t2 = _time()
                 time_fwd = time_fwd + (t2 - t1)
-                torch.save(output, './mkldnn_cnn_outputs/mkldnn_'+arch+'_bs_'+str(bs)+'_omp_'+str(os.getenv['OMP_NUM_THREADS'])+'.pt')
+                torch.save(output, './mkldnn_cnn_outputs/mkldnn_'+arch+'_bs_'+str(batch_size)+'_omp_'+str(os.getenv('OMP_NUM_THREADS'))+'.pt')
         
     
         #print(output)

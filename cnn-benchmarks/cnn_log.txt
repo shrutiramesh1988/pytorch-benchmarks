@@ -1,0 +1,1 @@
+Running on device:  AMD EPYC 7742 64-Core ProcessorModelType: unet3d, Kernels: nn Input shape: 19x4x64x64x64
